@@ -1,0 +1,27 @@
+TO ADD
+1. design passive and skill blocks
+2. cooldown and damage per skill or passive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FIXES
+1. skill titles and passive description <style> tags

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: rgb(11, 15, 34)
+}
+/* title */
+.title {
+	display: flex;
+	justify-content: center;
+	color: rgb(226, 226, 226);
+}
+
+/* main container that has two children */
+.mainContainer {
+	display: flex;
+	width: 80em;
+	height: 35em;
+	margin: auto;
+	background-color: rgba(20, 38, 119, 0.479);
+	justify-content: center;
+}
+/* two containers */
+.championList {
+	display: flex;
+	flex-wrap: wrap;
+	overflow: auto;
+}
+.championList .imageDiv {
+	height: 80px;
+	margin: .5em 0 0 .5em;
+}
+.championList, .championInfoSidebar {
+	margin: 1em;
+	min-width: 45%;
+	height: auto;
+	background-color: rgba(101, 101, 151, 0.562);
+}
+.boxImage {
+	cursor: pointer;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.boxImage {
+	height: auto;
+	width: 5em;
+}
+/* champion info */
+.championInfoSidebar {
+	color: rgb(218, 218, 218);
+	overflow: auto;
+}
+.champInfoContainer {
+	display: flex;
+}
+.champImg {
+	width: 10em;
+	background-color: rgba(133, 89, 89, 0.479);
+}
+.nameTitle {
+	margin: 0 10px;
+	font-size: 20px;
+}
+.champName {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+/* passive and skills */
+.passiveDiv, .skillDiv {
+	margin: 1em;
+	border-bottom: 1px solid black;
+}
+.infos {
+	display: flex;
+}
+.names {
+	color: rgb(223, 121, 121);
+	font-weight: bold;
+	padding: 0 .5em;
+}
+.descriptions {
+	text-indent: 1em;
+}
+.skillDiv img {
+	float: left;
+}
