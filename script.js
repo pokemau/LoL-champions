@@ -1,4 +1,4 @@
-const api_url= 'http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion.json/';
+const api_url= 'http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion.json';
 const champ_url = 'http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion/';
 
 //fetch individual champion Data
