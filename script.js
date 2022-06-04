@@ -1,5 +1,5 @@
-const api_url= 'https://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion.json/';
-const champ_url = 'https://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion/';
+const api_url= 'http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion.json/';
+const champ_url = 'http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion/';
 
 //fetch individual champion Data
 const fetchIndivData = async () => {
@@ -23,7 +23,7 @@ const renderImage = (championData) => {
 		const imageDiv = document.createElement('div');
 		imageDiv.className = 'imageDiv';
 		const champImage = document.createElement('img');
-		const image_url = `https://ddragon.leagueoflegends.com/cdn/12.10.1/img/champion/${entry[1].image.full}`;
+		const image_url = `http://ddragon.leagueoflegends.com/cdn/12.10.1/img/champion/${entry[1].image.full}`;
 		//add image attributes
 		champImage.id = entry[1].id;
 		champImage.alt = `image of ${entry[1].id}`;
@@ -46,9 +46,9 @@ const renderChampInfo = (champName, champData) => {
 	const champTitle = document.querySelector('.champTitle');
 	//champ img
 	const loadingImg = document.querySelector('.champImg');
-	const loadingImgURL = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champName}_0.jpg`;
+	const loadingImgURL = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champName}_0.jpg`;
 	//champ passive
-	const champPassiveURL = `https://ddragon.leagueoflegends.com/cdn/12.10.1/img/passive/${champData[1].passive.image.full}`
+	const champPassiveURL = `http://ddragon.leagueoflegends.com/cdn/12.10.1/img/passive/${champData[1].passive.image.full}`
 
 	//set champ img attributes
 	loadingImg.classList.add('champImg');
@@ -80,7 +80,7 @@ const renderChampInfo = (champName, champData) => {
 		const champSpellId = champData[1].spells[i].id;
 		const champSpellName = champData[1].spells[i].name;
 		const champpSpellDesc = champData[1].spells[i].description;
-		const spellURL = `https://ddragon.leagueoflegends.com/cdn/12.10.1/img/spell/${champSpellId}.png`
+		const spellURL = `http://ddragon.leagueoflegends.com/cdn/12.10.1/img/spell/${champSpellId}.png`
 		spellImgList[i].src = spellURL;
 
 		spellNames[i].textContent = champSpellName;
