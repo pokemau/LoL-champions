@@ -1,45 +1,50 @@
-const api_url= './dragontail-12.10.1/12.10.1/data/en_US/champion.json';
-const champ_url = './dragontail-12.10.1/12.10.1/data/en_US/champion/';
-
 //fetch individual champion Data
 const fetchIndivData = async () => {
+	const api_url= './dragontail-12.10.1/12.10.1/data/en_US/champion.json';
 	const apiResponse = await fetch(api_url);
 	const responseJson = await apiResponse.json();
 	const responseData = await responseJson.data;
+	
+
 
 	for(const entry of Object.entries(responseData)) {
-		const indivDataResponse = await fetch(`${champ_url + entry[0]}.json`)
-		const indivDataJson = await indivDataResponse.json();
-
-		renderImage(indivDataJson.data);
+		const indiv_champ_url = './dragontail-12.10.1/12.10.1/data/en_US/champion/';
+		const champID = entry[1].id;
+		const champJSON_URL = `${indiv_champ_url + champID}.json`;
+		const fetchIndivJSON = await fetch(champJSON_URL);
+		const indivJSON = await fetchIndivJSON.json();
+		const indivData = await indivJSON.data;
+		renderImage(indivData)
 	}
 
 }
+//render image to images list
+const renderImage = (champData) => {
 
-const renderImage = (championData) => {
-	const championListContainer = document.querySelector('.championList');
-	//render each champ
-	for(const entry of Object.entries(championData)) {
+	for(const entry of Object.entries(champData)) {
+		const champ_img_loc = './dragontail-12.10.1/12.10.1/img/champion/';
+		const champImage = document.createElement('img');
+		const championListContainer = document.querySelector('.championList');
+		const champID = entry[1].id;
+		const champName = entry[1].name;
+		const imgSRC = `${champ_img_loc + entry[1].id}.png`;
 		const imageDiv = document.createElement('div');
 		imageDiv.className = 'imageDiv';
-		const champImage = document.createElement('img');
-		const image_url = `./dragontail-12.10.1/12.10.1/img/champion/${entry[1].image.full}`;
-		//add image attributes
-		champImage.id = entry[1].id;
-		champImage.alt = `image of ${entry[1].id}`;
+		//set img attributes
+		champImage.id = champID;
+		champImage.alt = `image of ${champName}`;
 		champImage.classList.add('boxImage');
-		champImage.src = image_url;
+		champImage.src = imgSRC;
 		//append image to div then div to .container
 		imageDiv.appendChild(champImage);
 		championListContainer.appendChild(imageDiv);
-
-		//console.log(championData);
-
 		champImage.addEventListener('click', (e) => {
-			renderChampInfo(e.target.id, entry);
+			console.log(champData)
+			renderChampInfo(champName, entry);
 		})
 	}
 }
+
 const renderChampInfo = (champName, champData) => {
 	//champ name and title
 	const name = document.querySelector('.champName');
@@ -95,7 +100,7 @@ const renderChampInfo = (champName, champData) => {
 	passiveName.textContent = champData[1].passive.name.replace(/<\/?[^>]+(>|$)/gi, "");
 	passiveDesc.textContent = champData[1].passive.description //.replace(/<\/?[^>]+(>|$)/gi, "");
 
-	console.log(champData);
+	//console.log(champData);
 }
 
 fetchIndivData();
