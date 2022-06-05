@@ -23,7 +23,7 @@ const renderImage = (championData) => {
 		const imageDiv = document.createElement('div');
 		imageDiv.className = 'imageDiv';
 		const champImage = document.createElement('img');
-		const image_url = `http://ddragon.leagueoflegends.com/cdn/12.10.1/img/champion/${entry[1].image.full}`;
+		const image_url = `./dragontail-12.10.1/12.10.1/img/champion/${entry[1].image.full}`;
 		//add image attributes
 		champImage.id = entry[1].id;
 		champImage.alt = `image of ${entry[1].id}`;
@@ -46,9 +46,9 @@ const renderChampInfo = (champName, champData) => {
 	const champTitle = document.querySelector('.champTitle');
 	//champ img
 	const loadingImg = document.querySelector('.champImg');
-	const loadingImgURL = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champName}_0.jpg`;
+	const loadingImgURL = `./dragontail-12.10.1/img/champion/loading/${champName}_0.jpg`;
 	//champ passive
-	const champPassiveURL = `http://ddragon.leagueoflegends.com/cdn/12.10.1/img/passive/${champData[1].passive.image.full}`
+	const champPassiveURL = `./dragontail-12.10.1/12.10.1/img/passive/${champData[1].passive.image.full}`
 
 	//set champ img attributes
 	loadingImg.classList.add('champImg');
@@ -80,7 +80,7 @@ const renderChampInfo = (champName, champData) => {
 		const champSpellId = champData[1].spells[i].id;
 		const champSpellName = champData[1].spells[i].name;
 		const champpSpellDesc = champData[1].spells[i].description;
-		const spellURL = `http://ddragon.leagueoflegends.com/cdn/12.10.1/img/spell/${champSpellId}.png`
+		const spellURL = `./dragontail-12.10.1/12.10.1/img/spell/${champSpellId}.png`
 		spellImgList[i].src = spellURL;
 
 		spellNames[i].textContent = champSpellName;
