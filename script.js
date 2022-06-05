@@ -80,7 +80,7 @@ const renderChampInfo = (champName, champData) => {
 		const champSpellId = champData[1].spells[i].id;
 		const champSpellName = champData[1].spells[i].name;
 		const champpSpellDesc = champData[1].spells[i].description;
-		const spellURL = `./dragontail-12.10.1/12.10.1/img/spell/${champSpellId}.png`
+		const spellURL = `./dragontail-12.10.1/12.10.1/img/spell/${champSpellId}.png`;
 		spellImgList[i].src = spellURL;
 
 		spellNames[i].textContent = champSpellName;
