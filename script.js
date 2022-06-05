@@ -4,8 +4,6 @@ const fetchIndivData = async () => {
 	const apiResponse = await fetch(api_url);
 	const responseJson = await apiResponse.json();
 	const responseData = await responseJson.data;
-	
-
 
 	for(const entry of Object.entries(responseData)) {
 		const indiv_champ_url = './dragontail-12.10.1/12.10.1/data/en_US/champion/';
@@ -39,7 +37,7 @@ const renderImage = (champData) => {
 		imageDiv.appendChild(champImage);
 		championListContainer.appendChild(imageDiv);
 		champImage.addEventListener('click', (e) => {
-			console.log(champData)
+			//console.log(champData)
 			renderChampInfo(champName, entry);
 		})
 	}
