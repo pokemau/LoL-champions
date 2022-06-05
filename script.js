@@ -1,5 +1,5 @@
-const api_url= 'http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion.json';
-const champ_url = 'http://ddragon.leagueoflegends.com/cdn/12.10.1/data/en_US/champion/';
+const api_url= './dragontail-12.10.1/12.10.1/data/en_US/champion.json';
+const champ_url = './dragontail-12.10.1/12.10.1/data/en_US/champion/';
 
 //fetch individual champion Data
 const fetchIndivData = async () => {
