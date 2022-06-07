@@ -35,7 +35,6 @@ const renderImage = (champData) => {
 		imageDiv.appendChild(champImage)
 		championListContainer.appendChild(imageDiv)
 		champImage.addEventListener('click', () => {
-			//console.log(champData)
 			renderChampInfo(champID, champName, entry)
 		})
 	}
@@ -96,7 +95,18 @@ const renderChampInfo = (champID, champName, champData) => {
 	passiveName.textContent = champData[1].passive.name.replace(/<\/?[^>]+(>|$)/gi, "")
 	passiveDesc.textContent = champData[1].passive.description //.replace(/<\/?[^>]+(>|$)/gi, "")
 
-	//console.log(champData)
+
+	//base stats of the champion
+	console.log(champData[1].stats)
+	const champHP = champData[1].stats.hp
+	const champMana = champData[1].stats.mp
+	const champHpRegen = champData[1].stats.hpregen
+	const champArmor = champData[1].stats.armor
+	const champAD = champData[1].stats.attackdamage
+	const champMR = champData[1].stats.spellblock
+	const champRange = champData[1].stats.attackrange
+
+	console.log(champHP)
 }
 
 fetchIndivData()

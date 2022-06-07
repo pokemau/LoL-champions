@@ -72,6 +72,18 @@ body {
 	font-size: 25px;
 	font-weight: bold;
 }
+/* stats */
+.champStats {
+	background-color: rgb(94, 34, 34);
+	height: auto;
+	width: 25em;
+}
+.baseStats {
+	height: 40px;
+	background-color: rebeccapurple;
+}
+
+
 
 /* passive and skills */
 .passiveDiv, .skillDiv {
