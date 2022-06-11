@@ -75,17 +75,34 @@ const renderChampInfo = (champID, champName, champData) => {
 	const spellNames = [qName, wName, eName, rName]
 	const spellInfos = [qDesc, wDesc, eDesc, rDesc]
 	//skill cooldown
+	const qCD = document.querySelector('.qCD')
+	const wCD = document.querySelector('.wCD')
+	const eCD = document.querySelector('.eCD')
+	const rCD = document.querySelector('.rCD')
+	const spellCDs = [qCD, wCD, eCD, rCD]
+
+
 
 	for(let i = 0; i < 4; i++) {
+		const champCD = champData[1].spells[i].cooldown
+		spellCDs[i].textContent = champCD;
 		const champSpellId = champData[1].spells[i].id
 		const champSpellName = champData[1].spells[i].name
 		const champpSpellDesc = champData[1].spells[i].description
-		const spellURL = `./dragontail-12.10.1/12.10.1/img/spell/${champSpellId}.png`
-		spellImgList[i].src = spellURL
+		const spellImg_URL = `./dragontail-12.10.1/12.10.1/img/spell/${champSpellId}.png`
+		spellImgList[i].src = spellImg_URL
 
 		spellNames[i].textContent = champSpellName
 		spellInfos[i].textContent = champpSpellDesc
 	}
+	//add passiveDiv and spellDiv classes
+	const passiveDiv = document.querySelector('#pDiv')
+	passiveDiv.classList.add('passiveDiv')
+	const sDiv = document.querySelectorAll('.sDiv')
+	for(const skill of sDiv) {
+		skill.classList.add('skillDiv')
+	}
+	
 
 	//passive infos
 	const passiveImg = document.querySelector('.passive')
@@ -93,11 +110,10 @@ const renderChampInfo = (champID, champName, champData) => {
 	const passiveDesc = document.querySelector('.passiveDesc')
 	passiveImg.src = champPassiveURL;
 	passiveName.textContent = champData[1].passive.name.replace(/<\/?[^>]+(>|$)/gi, "")
-	passiveDesc.textContent = champData[1].passive.description //.replace(/<\/?[^>]+(>|$)/gi, "")
+	passiveDesc.textContent = champData[1].passive.description.replace(/<\/?[^>]+(>|$)/gi, "")
 
 
 	//base stats of the champion
-	console.log(champData[1].stats)
 	const champHP = champData[1].stats.hp
 	const champMana = champData[1].stats.mp
 	const champHpRegen = champData[1].stats.hpregen
@@ -105,8 +121,23 @@ const renderChampInfo = (champID, champName, champData) => {
 	const champAD = champData[1].stats.attackdamage
 	const champMR = champData[1].stats.spellblock
 	const champRange = champData[1].stats.attackrange
+	
+	const HP = document.querySelector('.hp')
+	const mana = document.querySelector('.mana')
+	const hpRegen = document.querySelector('.hpRegen')
+	const armor = document.querySelector('.armor')
+	const AD = document.querySelector('.ad')
+	const MR = document.querySelector('.mr')
+	const range = document.querySelector('.range')
+	HP.textContent = `HP: ${champHP}`
+	mana.textContent = `Mana: ${champMana}`
+	hpRegen.textContent = `HP Regen: ${champHpRegen} per 5sec`
+	armor.textContent = `Armor: ${champArmor}`
+	AD.textContent = `Attack Damage: ${champAD}`
+	MR.textContent = `Magic Resist: ${champMR}`
+	range.textContent = `Range: ${champRange}`
 
-	console.log(champHP)
+	console.log(champData)
 }
 
 fetchIndivData()
